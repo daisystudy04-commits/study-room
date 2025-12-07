@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Study Room — Host: Mehrin</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body,#jitsi{height:100%;margin:0;padding:0}
+    #topbar{position:fixed;left:8px;top:8px;z-index:999;background:rgba(255,255,255,0.9);padding:8px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <strong>Study Room — Host: Mehrin</strong><br>
+    Room: <span id="roomId"></span><br>
+    <small>Open this page and stay logged in to admit people</small>
+  </div>
+
+  <div id="jitsi"></div>
+
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script>
+    const roomName = 'Mehrin-Study-Room-2025'; 
+    document.getElementById('roomId').innerText = roomName;
+
+    const options = {
+      roomName: roomName,
+      parentNode: document.getElementById('jitsi'),
+      configOverwrite: { startWithAudioMuted: true, startWithVideoMuted: false },
+      interfaceConfigOverwrite: { SHOW_JITSI_WATERMARK: false }
+    };
+
+    const api = new JitsiMeetExternalAPI('meet.jit.si', options);
+  </script>
+</body>
+</html>
